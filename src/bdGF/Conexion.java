@@ -20,7 +20,7 @@ public class Conexion {
     	try {
 			iniBD() ;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
     }
