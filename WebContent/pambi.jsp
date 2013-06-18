@@ -49,7 +49,15 @@ if (informacion.equals("ejemploMSL")) {
 		JSONObject jsonObjRet= new JSONObject();
 		jsonObjRet.put("success", new Boolean(true));
 		jsonObjRet.put("nombre_peticion",informacion);
-		jsonObjRet.put("registros", db1.getCatalogoTorneo().toString());
+		jsonObjRet.put("registros", db1.getTorneos().toString());
+		
+		infoRegresar =	jsonObjRet.toString();
+	}else if (informacion.equals("UsuarioCatalogoTorneos")) {
+		String idUsuario = (request.getParameter("idUsuario")!=null)?request.getParameter("id_Usuario"):"";
+		JSONObject jsonObjRet= new JSONObject();
+		jsonObjRet.put("success", new Boolean(true));
+		jsonObjRet.put("nombre_peticion",informacion);
+		jsonObjRet.put("registros", db1.getUserTorneos(idUsuario).toString());
 		
 		infoRegresar =	jsonObjRet.toString();
 	}

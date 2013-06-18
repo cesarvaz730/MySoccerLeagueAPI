@@ -67,9 +67,25 @@ public class SampleDB
      return getqueryGen(sql);
     }
     
-    public JSONArray getCatalogoTorneo() throws SQLException{
-    	//String sql = "SELECT * FROM torneo";
+    public JSONArray getTorneos() throws SQLException{
+      	
+     String sql = "SELECT torneo.id_torneo as idTorneo, torneo.nombre_torneo as nombreTorneo, categoria.descripcion as idCategoria, " +
+     		      "       torneo.fecha_ini as fechaInicio, torneo.usuario as idUsuario, usuario.nick as nombreUsuario, " +
+     		      "       torneo.modalidad as idModalidad, Modalidad.descripcion as nombreModalidad, torneo.cancha as idCancha ," +
+     		      "       Canchas.descripcion as nombreCancha " +
+     			  " FROM torneo, categoria, usuario, Modalidad,Canchas" +
+     			  " WHERE torneo.rama = categoria.id AND " +
+     			  "      torneo.usuario = usuario.id_usuario AND " +
+     			  "      torneo.modalidad = Modalidad.id  AND"+
+     			  "		 torneo.cancha=Canchas.id";
+     
+     
     	
+     //id_torneo nombre_torneo rama logo fecha_ini fecha_fin usuario modalidad cancha activo
+     return getqueryGen(sql);
+    }
+    
+    public JSONArray getUserTorneos(String idUsuario) throws SQLException{
     	
      String sql = "SELECT torneo.id_torneo as idTorneo, torneo.nombre_torneo as nombreTorneo, categoria.descripcion as idCategoria, " +
      		      "       torneo.fecha_ini as fechaInicio, torneo.usuario as idUsuario, usuario.nick as nombreUsuario, " +
@@ -79,7 +95,10 @@ public class SampleDB
      			  " WHERE torneo.rama = categoria.id AND " +
      			  "      torneo.usuario = usuario.id_usuario AND " +
      			  "      torneo.modalidad = Modalidad.id  AND"+
-     			  "			torneo.cancha=Canchas.id";
+     			  "		 torneo.cancha=Canchas.id AND " + 
+	  			  "		 torneo.usuario = " + idUsuario;
+     
+     
     	
      //id_torneo nombre_torneo rama logo fecha_ini fecha_fin usuario modalidad cancha activo
      return getqueryGen(sql);
