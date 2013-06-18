@@ -12,10 +12,6 @@ SampleDB db1=new SampleDB();
 
 String infoRegresar="";
 if (informacion.equals("ejemploMSL")) {
-		///////////version ok///////////
-		////////////////////////////////
-		
-		
 		JSONObject jsonObjRet= new JSONObject();
 		JSONObject jsonObjMesEl= new JSONObject();
 		
@@ -26,17 +22,35 @@ if (informacion.equals("ejemploMSL")) {
 		infoRegresar =	jsonObjRet.toString();
 	 
 	}
-	else if (informacion.equals("porAtenderDAC")) {
+	else if (informacion.equals("CatalogoCanchas")) {
 		JSONObject jsonObjRet= new JSONObject();
 		jsonObjRet.put("success", new Boolean(true));
+		jsonObjRet.put("nombre_peticion",informacion);
+		jsonObjRet.put("registros", db1.getCatalogoCanchas().toString());
+		infoRegresar =	jsonObjRet.toString();
+	}
+	else if (informacion.equals("CatalogoCategorias")) {
+		JSONObject jsonObjRet= new JSONObject();
+		jsonObjRet.put("success", new Boolean(true));
+		jsonObjRet.put("nombre_peticion",informacion);
+		jsonObjRet.put("registros", db1.getCatalogoCategoria().toString());
+		
+		infoRegresar =	jsonObjRet.toString();
+	}
+	else if (informacion.equals("CatalogoModalidades")) {
+		JSONObject jsonObjRet= new JSONObject();
+		jsonObjRet.put("success", new Boolean(true));
+		jsonObjRet.put("nombre_peticion",informacion);
+		jsonObjRet.put("registros", db1.getCatalogoModalidad().toString());
 		
 		infoRegresar =	jsonObjRet.toString();
 	}
 	else{
 		JSONObject jsonObjRet= new JSONObject();
 		jsonObjRet.put("success", new Boolean(true));
-		jsonObjRet.put("parametro1", "mySoccerleague");
-		jsonObjRet.put("parametro2", db1.getConsultaRes());
+		jsonObjRet.put("parametro1", "mySoccerleague prueba");
+		jsonObjRet.put("nombre_peticion",informacion);
+		jsonObjRet.put("parametro2", "pruebas viejas");
 		
 		infoRegresar =	jsonObjRet.toString();
 		
