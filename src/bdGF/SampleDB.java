@@ -104,7 +104,7 @@ public class SampleDB
      return getqueryGen(sql);
     }
 /*
-    public boolean insertTorneo(String nombreTorneo, String rama, String fechaInicio, String fechaFin, 
+    public boolean insertTorneo(String nombreTorneo, String rama, /*String fechaInicio, String fechaFin,*/ 
     							  String usuario, String modalidad, String cancha) throws SQLException{
     	Statement stmt = null;
     	boolean success= false;
@@ -130,5 +130,4 @@ public class SampleDB
 	    
 	    return success;
     }
-    							  */
 }
