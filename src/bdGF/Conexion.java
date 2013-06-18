@@ -7,11 +7,11 @@ import java.util.Properties;
 
 public class Conexion {
 	
-	private static final String APIKEY= "eba46241faba2d84df1501860e936474";//<your key>
-
-    private static final String USER = "goalfactory";//<your user name>
-    private static final String PASSWORD = "???...lala";//<your password 
-    private static final String DB_NAME= "my_soccer_league_db";//<your db name>
+	public static final String APIKEY= "eba46241faba2d84df1501860e936474";//<your key>
+	public static final String LOGINNAME="goal.factory.mx@gmail.com";
+	public static final String USER = "goalfactory";//<your user name>
+	public static final String PASSWORD = "???...lala";//<your password 
+	public static final String DB_NAME= "my_soccer_league_db";//<your db name>
     
     
 	private  Connection conn = null;

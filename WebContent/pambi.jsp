@@ -68,12 +68,12 @@ if (informacion.equals("ejemploMSL")) {
 		String usuario = (request.getParameter("usuario")!=null)?request.getParameter("usuario"):"";
 		String modalidad = (request.getParameter("modalidad")!=null)?request.getParameter("modalidad"):"";
 		String cancha = (request.getParameter("cancha")!=null)?request.getParameter("cancha"):"";
-		
+		InsertsDB insertTorneo=new InsertsDB();
 		
 		JSONObject jsonObjRet= new JSONObject();
 		jsonObjRet.put("success", new Boolean(true));
 		jsonObjRet.put("nombre_peticion",informacion);
-		jsonObjRet.put("registros", db1.insertTorneo(nombreTorneo, rama, usuario, modalidad, cancha));
+		jsonObjRet.put("registros", new Boolean(insertTorneo.addRow(nombreTorneo, rama, usuario, modalidad, cancha)));
 		
 		infoRegresar =	jsonObjRet.toString();
 	} else{

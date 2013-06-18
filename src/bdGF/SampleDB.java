@@ -1,6 +1,8 @@
 package bdGF;
 import java.sql.*;
 
+import com.adventnet.zoho.client.report.ReportClient;
+
 import bdGF.utils.ResultSetConverter;
 import net.sf.json.*;
 
@@ -9,7 +11,7 @@ public class SampleDB
     
    
     private  Connection conn = null;
-    
+   
     public SampleDB(){
     	try {
     		conn=(new Conexion()).getConn();
@@ -18,7 +20,8 @@ public class SampleDB
 			e.printStackTrace();
 		}
     }
-
+    
+   
     /**
      * Query generico
      */
@@ -106,27 +109,37 @@ public class SampleDB
     
     public boolean insertTorneo(String nombreTorneo, String rama, /*String fechaInicio, String fechaFin,*/ 
 			  String usuario, String modalidad, String cancha) throws SQLException{
-    	PreparedStatement stmt = null;
+    	Statement stmt = null;
 		boolean success= false;
 		
-		
+		stmt = conn.createStatement();
 		//stmt = con.prepareStatement(" INSERT INTO torneo (nombre_torneo, rama, fecha_ini, fecha_fin, usuario, modalidad, cancha, activo) " +
-		stmt = conn.prepareStatement(" INSERT INTO torneo (nombre_torneo, rama, usuario, modalidad, cancha, activo) " +
-						" VALUES (?,?,?,?,?,?,?,?)");
-		try {
-			stmt.setString(1, nombreTorneo);
-			stmt.setInt(2, Integer.valueOf(rama));
-			//stmt.setString(3, fechaInicio);
-			//stmt.setString(4, fechaFin);
-			stmt.setInt(5, Integer.parseInt(usuario));
-			stmt.setInt(6, Integer.parseInt(modalidad));
-			stmt.setInt(7, Integer.parseInt(cancha));
-			stmt.setString(8, "S");
-			stmt.executeUpdate();
-			success = true;
-		} finally {
+		String queryIns=(" INSERT INTO torneo (nombre_torneo, rama, " +
+				"usuario, modalidad, cancha, activo) " +
+						" VALUES ("+nombreTorneo+","+rama+","+ usuario+","+ modalidad+","+cancha+",S"+ ")");
 		
-		}
+		/*String insertTableSQL = "INSERT INTO DBUSER"
+			+ "(USER_ID, USERNAME, CREATED_BY, CREATED_DATE) " + "VALUES"
+			+ "(1,'mkyong','system', " + "to_date('"
+			+ getCurrentTimeStamp() + "', 'yyyy/mm/dd hh24:mi:ss'))";
+		*/
+		
+		try {
+		//	stmt.setString(1, nombreTorneo);
+			//stmt.setInt(2, Integer.valueOf(rama));
+						//stmt.setString(3, fechaInicio);
+						//stmt.setString(4, fechaFin);
+			//stmt.setInt(5, Integer.parseInt(usuario));
+			//stmt.setInt(6, Integer.parseInt(modalidad));
+			//stmt.setInt(7, Integer.parseInt(cancha));
+			//stmt.setString(8, "S");
+			//stmt.executeUpdate();
+			stmt.executeUpdate(queryIns);
+			success = true;
+		}catch (SQLException e) {
+ 
+			System.out.println(e.getMessage());
+			}
 		
 		return success;
 	}
