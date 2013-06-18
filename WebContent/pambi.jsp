@@ -45,6 +45,14 @@ if (informacion.equals("ejemploMSL")) {
 		
 		infoRegresar =	jsonObjRet.toString();
 	}
+	else if (informacion.equals("CatalogoTorneos")) {
+		JSONObject jsonObjRet= new JSONObject();
+		jsonObjRet.put("success", new Boolean(true));
+		jsonObjRet.put("nombre_peticion",informacion);
+		jsonObjRet.put("registros", db1.getCatalogoTorneo().toString());
+		
+		infoRegresar =	jsonObjRet.toString();
+	}
 	else{
 		JSONObject jsonObjRet= new JSONObject();
 		jsonObjRet.put("success", new Boolean(true));

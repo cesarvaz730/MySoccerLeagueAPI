@@ -66,4 +66,22 @@ public class SampleDB
      String sql = "select * from Modalidad order by descripcion";
      return getqueryGen(sql);
     }
+    
+    public JSONArray getCatalogoTorneo() throws SQLException{
+    	String sql = "SELECT * FROM torneo";
+    	
+    	/*
+     String sql = "SELECT id_torneo as idTorneo, nombre_torneo as nombreTorneo, categoria.descripcion as idCategoria, " +
+     		      "       fecha_ini as fechaInicio, torneo.usuario as idUsuario, usuario.nick as nombreUsuario, " +
+     		      "       torneo.modalidad as idModalidad, Modalidad.descripcion as nombreModalidad, torneo.cancha as idCancha " +
+     		      "       Canchas.descripcion as nombreCancha " +
+     			  "FROM torneo, categoria, usuario, Modalidad, Canchas " +
+     			  "WHERE torneo.rama = categoria.descripcion AND " +
+     			  "      torneo.usuario = usuario.nick AND " +
+     			  "      torneo.modalidad = Modalidad.descripcion AND " +
+     			  "      torneo.cancha = Canchas.descripcion ";
+     */
+     //id_torneo nombre_torneo rama logo fecha_ini fecha_fin usuario modalidad cancha activo
+     return getqueryGen(sql);
+    }
 }
