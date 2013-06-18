@@ -106,16 +106,16 @@ public class SampleDB
     
     public boolean insertTorneo(String nombreTorneo, String rama, /*String fechaInicio, String fechaFin,*/ 
 			  String usuario, String modalidad, String cancha) throws SQLException{
-		Statement stmt = null;
+    	PreparedStatement stmt = null;
 		boolean success= false;
 		
-		stmt = conn.createStatement();
+		
 		//stmt = con.prepareStatement(" INSERT INTO torneo (nombre_torneo, rama, fecha_ini, fecha_fin, usuario, modalidad, cancha, activo) " +
-		stmt = con.prepareStatement(" INSERT INTO torneo (nombre_torneo, rama, usuario, modalidad, cancha, activo) " +
+		stmt = conn.prepareStatement(" INSERT INTO torneo (nombre_torneo, rama, usuario, modalidad, cancha, activo) " +
 						" VALUES (?,?,?,?,?,?,?,?)");
 		try {
 			stmt.setString(1, nombreTorneo);
-			stmt.setInt(2, rama);
+			stmt.setInt(2, Integer.valueOf(rama));
 			//stmt.setString(3, fechaInicio);
 			//stmt.setString(4, fechaFin);
 			stmt.setInt(5, Integer.parseInt(usuario));
