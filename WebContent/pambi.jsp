@@ -26,14 +26,14 @@ if (informacion.equals("ejemploMSL")) {
 		JSONObject jsonObjRet= new JSONObject();
 		jsonObjRet.put("success", new Boolean(true));
 		jsonObjRet.put("nombre_peticion",informacion);
-		jsonObjRet.put("registros", db1.getCatalogoCanchas().toString());
+		jsonObjRet.put("registros", db1.getCanchas().toString());
 		infoRegresar =	jsonObjRet.toString();
 	}
 	else if (informacion.equals("CatalogoCategorias")) {
 		JSONObject jsonObjRet= new JSONObject();
 		jsonObjRet.put("success", new Boolean(true));
 		jsonObjRet.put("nombre_peticion",informacion);
-		jsonObjRet.put("registros", db1.getCatalogoCategoria().toString());
+		jsonObjRet.put("registros", db1.getCategoria().toString());
 		
 		infoRegresar =	jsonObjRet.toString();
 	}
@@ -41,7 +41,7 @@ if (informacion.equals("ejemploMSL")) {
 		JSONObject jsonObjRet= new JSONObject();
 		jsonObjRet.put("success", new Boolean(true));
 		jsonObjRet.put("nombre_peticion",informacion);
-		jsonObjRet.put("registros", db1.getCatalogoModalidad().toString());
+		jsonObjRet.put("registros", db1.getModalidad().toString());
 		
 		infoRegresar =	jsonObjRet.toString();
 	}

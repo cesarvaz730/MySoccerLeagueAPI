@@ -45,7 +45,7 @@ public class SampleDB
     /**
      * query para catalogo canchas
      */
-    public JSONArray getCatalogoCanchas() throws SQLException
+    public JSONArray getCanchas() throws SQLException
     {
      String sql = "select * from Canchas order by descripcion";
      return getqueryGen(sql);
@@ -53,7 +53,7 @@ public class SampleDB
     /**
      * query para catalogo categorias
      */
-    public JSONArray getCatalogoCategoria() throws SQLException
+    public JSONArray getCategorias() throws SQLException
     {    
      String sql = "select * from categoria order by descripcion";
      return getqueryGen(sql);
@@ -61,7 +61,7 @@ public class SampleDB
     /**
      * query para catalogo modalidad
      */
-    public JSONArray getCatalogoModalidad() throws SQLException
+    public JSONArray getModalidades() throws SQLException
     {     
      String sql = "select * from Modalidad order by descripcion";
      return getqueryGen(sql);
