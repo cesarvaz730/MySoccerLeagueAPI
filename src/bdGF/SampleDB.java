@@ -103,31 +103,5 @@ public class SampleDB
      //id_torneo nombre_torneo rama logo fecha_ini fecha_fin usuario modalidad cancha activo
      return getqueryGen(sql);
     }
-/*
-    public boolean insertTorneo(String nombreTorneo, String rama, /*String fechaInicio, String fechaFin,*/ 
-    							  String usuario, String modalidad, String cancha) throws SQLException{
-    	Statement stmt = null;
-    	boolean success= false;
-    	
-    	stmt = conn.createStatement();
-    	//stmt = con.prepareStatement(" INSERT INTO torneo (nombre_torneo, rama, fecha_ini, fecha_fin, usuario, modalidad, cancha, activo) " +
-    	stmt = con.prepareStatement(" INSERT INTO torneo (nombre_torneo, rama, usuario, modalidad, cancha, activo) " +
-    				 				" VALUES (?,?,?,?,?,?,?,?)");
-    	try {
-    		stmt.setString(1, nombreTorneo);
-        	stmt.setInt(2, rama);
-        	//stmt.setString(3, fechaInicio);
-        	//stmt.setString(4, fechaFin);
-        	stmt.setInt(5, Integer.parseInt(usuario));
-        	stmt.setInt(6, Integer.parseInt(modalidad));
-        	stmt.setInt(7, Integer.parseInt(cancha));
-        	stmt.setString(8, "S");
-        	stmt.executeUpdate();
-        	success = true;
-    	} finally {
-    		
-    	}
-	    
-	    return success;
-    }
+
 }
