@@ -107,6 +107,15 @@ public class SampleDB
      return getqueryGen(sql);
     }
     
-   
-
+    public JSONArray getTorneosFavoritos(String idUsuario ) throws SQLException{
+        String sql = " SELECT torneos_favoritos.id as idFavorito, torneos_favoritos.id_usuario as idUsuario, " +
+        			 "        torneos_favoritos.id_torneo as idTorneo, usuario.nick as nombreUsuario, " +
+        			 "		  torneo.nombre_torneo as nombreTorneo, torneo.id_torneo as idTorneo" +
+        			 " FROM torneos_favoritos, torneo, usuario" +
+        			 " WHERE torneos_favoritos.id_torneo = torneo.id_torneo AND " +
+        			 "       torneos_favoritos.id_usuario = usuario.id_usuario AND " +
+        			 "       torneos_favoritos.id_usuario = " + idUsario;
+       	
+        return getqueryGen(sql);
+    }
 }

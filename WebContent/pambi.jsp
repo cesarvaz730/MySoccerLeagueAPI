@@ -62,6 +62,15 @@ if (informacion.equals("ejemploMSL")) {
 		
 		infoRegresar =	jsonObjRet.toString();
 		
+	} else if (informacion.equals("TorneosFavoritos")) {
+		String idUsuario = (request.getParameter("idUsuario")!=null)?request.getParameter("id_Usuario"):"";
+		JSONObject jsonObjRet= new JSONObject();
+		jsonObjRet.put("success", new Boolean(true));
+		jsonObjRet.put("nombre_peticion",informacion);
+		jsonObjRet.put("registros", db1.getTorneosFavoritos(idUsuario).toString());
+		
+		infoRegresar =	jsonObjRet.toString();
+		
 	} else if (informacion.equals("creaTorneo")) {
 		String nombreTorneo = (request.getParameter("nombreTorneo")!=null)?request.getParameter("nombreTorneo"):"";
 		String rama = (request.getParameter("rama")!=null)?request.getParameter("rama"):"";
