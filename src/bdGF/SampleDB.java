@@ -118,4 +118,21 @@ public class SampleDB
        	
         return getqueryGen(sql);
     }
+    
+    public JSONArray getEquiposPorTorneo(String idTorneo) throws SQLException{
+        String sql = " SELECT id_equipo as idEquipo, nombre_equipo as nombreEquipo, status, torneo " +
+        			 " FROM torneo, equipo" +
+        			 " WHERE equipo.torneo = " + idTorneo;
+       	
+        return getqueryGen(sql);
+    }
+    
+    
+    public JSONArray inscribirEquipo(String idTorneo) throws SQLException{
+        String sql = " SELECT id_equipo as idEquipo, nombre_equipo as nombreEquipo, status, torneo " +
+        			 " FROM torneo, equipo" +
+        			 " WHERE equipo.torneo = " + idTorneo;
+       	
+        return getqueryGen(sql);
+    }
 }

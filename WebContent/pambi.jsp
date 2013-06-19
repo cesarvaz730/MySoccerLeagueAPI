@@ -71,7 +71,25 @@ if (informacion.equals("ejemploMSL")) {
 		
 		infoRegresar =	jsonObjRet.toString();
 		
-	} else if (informacion.equals("creaTorneo")) {
+	}/*else if (informacion.equals("InscribirEquipo")) {
+		String idTorneo = (request.getParameter("idTorneo")!=null)?request.getParameter("id_Torneo"):"";
+		JSONObject jsonObjRet= new JSONObject();
+		jsonObjRet.put("success", new Boolean(true));
+		jsonObjRet.put("nombre_peticion",informacion);
+		jsonObjRet.put("registros", db1.inscribirEquipo(idTorneo).toString());
+		
+		infoRegresar =	jsonObjRet.toString();
+		
+	}*/else if (informacion.equals("EquiposPorTorneo")) {
+		String idTorneo = (request.getParameter("idTorneo")!=null)?request.getParameter("id_Torneo"):"";
+		JSONObject jsonObjRet= new JSONObject();
+		jsonObjRet.put("success", new Boolean(true));
+		jsonObjRet.put("nombre_peticion",informacion);
+		jsonObjRet.put("registros", db1.getEquiposPorTorneo(idTorneo).toString());
+		
+		infoRegresar =	jsonObjRet.toString();
+		
+	}else if (informacion.equals("creaTorneo")) {
 		String nombreTorneo = (request.getParameter("nombreTorneo")!=null)?request.getParameter("nombreTorneo"):"";
 		String rama = (request.getParameter("rama")!=null)?request.getParameter("rama"):"";
 		String usuario = (request.getParameter("usuario")!=null)?request.getParameter("usuario"):"";
