@@ -73,7 +73,16 @@ if (informacion.equals("ejemploMSL")) {
 		JSONObject jsonObjRet= new JSONObject();
 		jsonObjRet.put("success", new Boolean(true));
 		jsonObjRet.put("nombre_peticion",informacion);
-		jsonObjRet.put("registros", new Boolean(insertTorneo.addRow(nombreTorneo, rama, usuario, modalidad, cancha)));
+		
+		HashMap camposTabla = new HashMap();
+		camposTabla.put("nombre_torneo",nombreTorneo);
+		camposTabla.put("rama",rama);
+		camposTabla.put("usuario",usuario);
+		camposTabla.put("modalidad",modalidad);
+		camposTabla.put("cancha",cancha);
+		camposTabla.put("activo","S");
+        
+		jsonObjRet.put("registros", new Boolean(insertTorneo.insertGenerico(camposTabla,"torneo")));
 		
 		infoRegresar =	jsonObjRet.toString();
 	} else{
